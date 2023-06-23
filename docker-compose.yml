@@ -1,0 +1,9 @@
+version "3"
+service
+ web
+   build 
+      content: .
+      Dockerfile: Dockerfile
+   Ports: 
+     - 8000:8000
+
