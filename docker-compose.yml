@@ -1,6 +1,22 @@
-version: "3.3"
+
+version: '3'
 services:
   web:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
-      - "8000:8000"
+      - 8000:8000
+    command: python manage.py runserver 0.0.0.0:8000
+
+
+
+
+# version: "3.3"
+# services:
+#   web:
+#     build: .
+#     ports:
+#       - "8000:8000"
+
+
