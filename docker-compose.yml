@@ -1,9 +1,8 @@
-version "3"
-service
- web
-   build 
-      content: .
-      Dockerfile: Dockerfile
-   Ports: 
-     - 8000:8000
-
+version: "3"
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8000:8000
