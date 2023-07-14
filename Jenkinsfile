@@ -12,7 +12,7 @@ pipeline {
         stage("build") {
             steps {
                 echo "Building the Docker image"
-                sh "docker build  -t noteapp:latest ."
+                sh "docker build  -t todoapp:latest ."
             }
         }
         
@@ -20,9 +20,9 @@ pipeline {
             steps {
                 echo "Pushing the Docker image to Docker Hub"
                 withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
-                    sh "docker tag noteapp ${DOCKER_USERNAME}/noteapp:latest"
+                    sh "docker tag todoapp ${DOCKER_USERNAME}/todoapp:latest"
                     sh "docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}"
-                    sh "docker push ${DOCKER_USERNAME}/noteapp:latest"
+                    sh "docker push ${DOCKER_USERNAME}/todoapp:latest"
                 }
                 
             }
